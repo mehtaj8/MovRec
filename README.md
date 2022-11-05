@@ -3,5 +3,5 @@
     
 ## Getting Started
 To run the application do:
-
-    npm start
+- npm install
+- npm start
