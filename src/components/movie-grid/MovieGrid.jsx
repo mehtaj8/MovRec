@@ -7,7 +7,7 @@ import MovieCard from '../movie-card/MovieCard';
 import Button, { OutlineButton } from '../button/Button';
 import Input from '../input/Input'
 
-import tmdbApi, { category, movieType, tvType } from '../../api/tmdbApi';
+import tmdbApi, { category, movieType } from '../../api/tmdbApi';
 
 const MovieGrid = props => {
 
@@ -28,7 +28,8 @@ const MovieGrid = props => {
                         response = await tmdbApi.getMoviesList(movieType.upcoming, {params});
                         break;
                     default:
-                        response = await tmdbApi.getTvList(tvType.popular, {params});
+                        response = await tmdbApi.getMoviesList(movieType.upcoming, {params});
+                        break;
                 }
             } else {
                 const params = {
@@ -53,7 +54,7 @@ const MovieGrid = props => {
                     response = await tmdbApi.getMoviesList(movieType.upcoming, {params});
                     break;
                 default:
-                    response = await tmdbApi.getTvList(tvType.popular, {params});
+                    response = await tmdbApi.getMoviesList(movieType.upcoming, {params});
             }
         } else {
             const params = {
